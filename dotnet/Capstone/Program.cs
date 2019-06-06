@@ -49,7 +49,7 @@ namespace Capstone
                 if (input  == "1")
                 {
                     Console.WriteLine("Please enter a full dollar amount");
-                   // int 
+                    int 
                 }
 
             }
