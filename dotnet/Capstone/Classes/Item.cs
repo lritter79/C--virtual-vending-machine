@@ -13,7 +13,7 @@ namespace Capstone.Classes
         public string Phrase { get; }
         public int Count { get; set; }
 
-        public Item(string slotLocation, string productName, decimal price, string type, string phrase, int count)
+        public Item(string slotLocation, string productName, decimal price, string type, int count, string phrase)
         {
             SlotLocation = slotLocation;
             ProductName = productName;

@@ -15,7 +15,7 @@ namespace CapstoneTests.Classes
         public void HasProperties()
         {
             // Arrange
-            Drink testDrink = new Drink("x", "y", 6.01M, "drink");
+            Drink testDrink = new Drink("x", "y", 6.01M, "drink", 5);
 
             // Act
 
