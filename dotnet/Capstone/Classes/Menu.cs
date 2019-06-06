@@ -30,7 +30,20 @@ namespace Capstone.Classes
 
             foreach (KeyValuePair<string, dynamic> kvp in stock)
             {
-                Console.WriteLine("Type is " + kvp.Value.GetType());
+                string snackType = kvp.Value.GetType().ToString();
+                string[] arr = snackType.Split('.');
+                snackType = arr[arr.Length - 1];
+                string name = "";
+                decimal price = 0M;
+                Item item = kvp.Value;
+                Console.WriteLine(
+                    item.SlotLocation.PadRight(4) +
+                    "|" +
+                    item.ProductName.PadRight(20) +
+                    "|" +
+                    item.Price.ToString("C2").PadRight(20)
+                    );
+
             }
 
            

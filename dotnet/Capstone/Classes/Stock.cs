@@ -31,21 +31,21 @@ namespace Capstone.Classes
                         string line = sr.ReadLine();
                         string[] words = line.Split('|');
                         string snackType = words[3]; 
-                        if (snackType == "Chips")
+                        if (snackType == "Chip")
                         {
-                            stock[words[0]] = new Chips(words[1], words[2], 1M, "Chips");
+                            stock[words[0]] = new Chip(words[0], words[1], decimal.Parse(words[2]), words[3]);
                         }
                         if (snackType == "Candy")
                         {
-                            stock[words[0]] = new Chips(words[1], words[2], 1M, "Candy");
+                            stock[words[0]] = new Candy(words[0], words[1], decimal.Parse(words[2]), words[3]);
                         }
                         if (snackType == "Drink")
                         {
-                            stock[words[0]] = new Chips(words[1], words[2], 1M, "Drink");
+                            stock[words[0]] = new Drink(words[0], words[1], decimal.Parse(words[2]), words[3]);
                         }
                         if (snackType == "Gum")
                         {
-                            stock[words[0]] = new Chips(words[1], words[2], 1M, "Gum");
+                            stock[words[0]] = new Gum(words[0], words[1], decimal.Parse(words[2]), "Gum");
                         }
                     }
                 }
