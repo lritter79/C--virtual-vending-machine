@@ -22,10 +22,10 @@ namespace Capstone.Classes
             decimal price = InventoryDictionary[code].Price;
             return price;
         }
-        public string GetProduct(string code)
+        public string GetProductName(string code)
         {
-            string product = InventoryDictionary[code].ProductName;
-            return product;
+            string productName = InventoryDictionary[code].ProductName;
+            return productName;
         }
         public string GetPhrase(string code)
         {

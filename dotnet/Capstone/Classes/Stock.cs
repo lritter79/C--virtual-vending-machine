@@ -9,6 +9,10 @@ namespace Capstone.Classes
 {
     public static class Stock
     {
+        /// <summary>
+        /// Stocks or vending machine using the csv file
+        /// </summary>
+        /// <param name="stock"></param>
         public static void StockVendingMachine(Dictionary<string, Item> stock)
         {
             // Directory and file name
