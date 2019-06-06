@@ -23,10 +23,10 @@ namespace Capstone.Classes
             // the individual word in a collection.
             List<string> allWords = new List<string>();
             string currentMoney = balance.ToString("C2");
-            Dictionary<string, dynamic> stock = new Dictionary<string, dynamic>();
+            Dictionary<string, Item> stock = new Dictionary<string, Item>();
             Stock.StockVendingMachine(stock);
 
-            foreach (KeyValuePair<string, dynamic> kvp in stock)
+            foreach (KeyValuePair<string, Item> kvp in stock)
             {
                 string snackType = kvp.Value.GetType().ToString();
                 string[] arr = snackType.Split('.');

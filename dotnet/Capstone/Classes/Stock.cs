@@ -9,7 +9,7 @@ namespace Capstone.Classes
 {
     public static class Stock
     {
-        public static void StockVendingMachine(Dictionary<string, dynamic> stock)
+        public static void StockVendingMachine(Dictionary<string, Item> stock)
         {
             // Directory and file name
             string directory = Environment.CurrentDirectory;

@@ -37,7 +37,7 @@ namespace Capstone
                     }
                     if (input == "2")
                     {
-                        Console.WriteLine("Enter a product code")
+                        Console.WriteLine("Enter a product code");
                         {
                             string code = Console.ReadLine();
                         }
