@@ -20,12 +20,15 @@ namespace Capstone
                 if (falseInput)
                 {
                     Console.WriteLine("");
-                    Console.WriteLine("Please press 1 or 2.");
+                    Console.WriteLine("Please Enter 1 or 2.");
                 }
 
             } while (falseInput);
-            
-             
+            if (input == "1")
+            {
+                Menu.DisplayMenu();
+            }
+            Console.ReadLine();
 
             
             //Chips chips = new Chips("a1", "chips", 0M, "chips");

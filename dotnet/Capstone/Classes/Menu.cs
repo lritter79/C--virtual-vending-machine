@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Capstone.Classes;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace Capstone.Classes
     public static class Menu
     {
 
-        public static void ReadFile()
+        public static void DisplayMenu()
         {
             // Directory and file name
             string directory = Environment.CurrentDirectory;
@@ -23,31 +24,16 @@ namespace Capstone.Classes
             // the individual word in a collection.
             List<string> allWords = new List<string>();
             decimal balance = 0;
-            string currentMoney = balance.ToString("C2"); 
-            try
-            {
+            string currentMoney = balance.ToString("C2");
+            Dictionary<string, dynamic> stock = new Dictionary<string, dynamic>();
+            Stock.StockVendingMachine(stock);
 
-                using (StreamReader sr = new StreamReader(fullPath))
-                {
-
-                    while (!sr.EndOfStream)
-                    {
-                        string line = sr.ReadLine();
-                        string[] words = line.Split(',');
-                        allWords.AddRange(words);
-
-                    } 
-                }
-            }
-            catch (IOException e) 
+            foreach (KeyValuePair<string, dynamic> kvp in stock)
             {
-                Console.WriteLine("Error reading the file");
-                Console.WriteLine(e.Message);
+                Console.WriteLine("Type is " + kvp.Value.GetType());
             }
-            foreach (string word in allWords)
-            {
-                Console.WriteLine(word);
-            }
+
+           
             Console.WriteLine();
             Console.WriteLine("Current Money Provided: " + currentMoney);
         }
