@@ -15,7 +15,7 @@ namespace CapstoneTests.Classes
         public void HasProperties()
         {
             // Arrange
-            Chip testChips = new Chip("x", "y", 6.01M, "chips");
+            Chip testChips = new Chip("x", "y", 6.01M, "chips", 5);
 
             // Act
 
@@ -27,6 +27,9 @@ namespace CapstoneTests.Classes
             Assert.AreEqual(testChips.ProductName, "y");
             Assert.AreEqual(testChips.Price, 6.01M);
             Assert.AreEqual(testChips.Type, "chips");
+            Assert.AreEqual(5, testChips.Count);
+
+
             Assert.AreEqual(phrase, "Crunch Crunch, Yum!");
 
         }

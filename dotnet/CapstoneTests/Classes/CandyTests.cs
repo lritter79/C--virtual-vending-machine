@@ -15,7 +15,7 @@ namespace CapstoneTests.Classes
         public void HasProperties()
         {
             // Arrange
-            Candy testcandy = new Candy("x", "y", 6.01M, "candy");
+            Candy testcandy = new Candy("x", "y", 6.01M, "candy", 5);
 
             // Act
 

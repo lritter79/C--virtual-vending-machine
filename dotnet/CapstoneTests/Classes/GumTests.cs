@@ -16,7 +16,7 @@ namespace CapstoneTests.Classes
         public void HasProperties()
         {
             // Arrange
-            Gum testGum = new Gum("x", "y", 6.01M, "gum");
+            Gum testGum = new Gum("x", "y", 6.01M, "gum", 5);
 
             // Act
 
