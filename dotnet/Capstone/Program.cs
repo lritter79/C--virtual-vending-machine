@@ -9,24 +9,16 @@ namespace Capstone
         public static void Main(string[] args)
         {
             CashBox cashBox = new CashBox();
+            decimal balance = cashBox.GetBalance();
             string input = "";
-            bool falseInput = false;
-            do
-            {
-                Console.WriteLine("(1) Display Vending Machine Items");
-                Console.WriteLine("(2) Purchase");
-                input = Console.ReadLine();
 
-                falseInput = input != "1" && input != "2";
-                if (falseInput)
-                {
-                    Console.WriteLine("");
-                    Console.WriteLine("Please Enter 1 or 2.");
-                }
-            } while (falseInput);
+            Console.WriteLine("(1) Display Vending Machine Items");
+            Console.WriteLine("(2) Purchase");
+            input = Console.ReadLine();
+
             if (input == "1")
             {
-                Menu.DisplayMenu();
+                Menu.DisplayMenu(balance);
             }
             if (input == "2")
             {
@@ -49,7 +41,7 @@ namespace Capstone
                 if (input  == "1")
                 {
                     Console.WriteLine("Please enter a full dollar amount");
-                    int 
+                    cashBox.AddBalance(Console.ReadLine());
                 }
 
             }
