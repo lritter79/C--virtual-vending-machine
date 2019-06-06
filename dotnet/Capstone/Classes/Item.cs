@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Capstone.Classes
 {
-    public abstract class Item : ISayable
+    public abstract class Item
     {
         public string SlotLocation { get; set;}
         public string ProductName { get; set; }

@@ -14,50 +14,42 @@ namespace Capstone.Classes
         {
             // Directory and file name
             string directory = Environment.CurrentDirectory;
-            string filename = "words.csv";
+            string filename = "vendingmachine.csv";
 
             // Full Path
-            string fullPath = Path.Combine(directory, filename);
+            string fullPath = Path.Combine(directory, "..\\..\\..\\..\\etc", filename);
 
             // Here we'll read in the file, separate each word with a comma and store
             // the individual word in a collection.
             List<string> allWords = new List<string>();
-
+            decimal balance = 0;
+            string currentMoney = balance.ToString("C2"); 
             try
             {
-                //Open a StreamReader with the using statement
-                // The StreamReader then is automatically disposed so that
-                // resources can be cleaned up
+
                 using (StreamReader sr = new StreamReader(fullPath))
                 {
-                    // Read the file until the end of the stream is reached
-                    // EndOfStream is a "marker" that the stream uses to determine 
+
                     while (!sr.EndOfStream)
                     {
-                        // Read in a single line
                         string line = sr.ReadLine();
-
-                        // Split the line by ,
                         string[] words = line.Split(',');
-
-                        // Add each word to allWords
                         allWords.AddRange(words);
 
-                    } //go to the next line until the end is reached
+                    } 
                 }
             }
-            catch (IOException e) //catch a specific type of Exception
+            catch (IOException e) 
             {
                 Console.WriteLine("Error reading the file");
                 Console.WriteLine(e.Message);
             }
-
-
-            // Print out each of the words
             foreach (string word in allWords)
             {
                 Console.WriteLine(word);
             }
+            Console.WriteLine();
+            Console.WriteLine("Current Money Provided: " + currentMoney);
         }
     }
 }
