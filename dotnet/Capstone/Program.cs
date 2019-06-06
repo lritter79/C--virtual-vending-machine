@@ -1,4 +1,6 @@
 ﻿using System;
+using Capstone.Classes;
+
 
 namespace Capstone
 {
@@ -6,7 +8,9 @@ namespace Capstone
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Chips chips = new Chips("a1", "chips", 0M, "chips");
+            Console.WriteLine(chips.Phrase);
+            Console.ReadLine();
         }
     }
 }
