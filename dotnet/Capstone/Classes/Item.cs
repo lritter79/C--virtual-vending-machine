@@ -11,7 +11,7 @@ namespace Capstone.Classes
         public decimal Price { get;  }
         public string Type { get; }
         public string Phrase { get; }
-        public int Count { get; protected set; }
+        public int Count { get; set; }
 
         public Item(string slotLocation, string productName, decimal price, string type, string phrase, int count)
         {

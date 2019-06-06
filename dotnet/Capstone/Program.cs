@@ -16,33 +16,34 @@ namespace Capstone
             Console.WriteLine("(2) Purchase");
             input = Console.ReadLine();
 
+
             if (input == "1")
             {
                 Menu.DisplayMenu(balance);
             }
             if (input == "2")
             {
-                do
+            while(input != "3")
                 {
-                    if (falseInput)
-                    {
-                        Console.WriteLine("");
-                        Console.WriteLine("Please Enter 1, 2, 3.");
-                    }
-
+                    Console.WriteLine();
                     Console.WriteLine("(1) Feed Money");
                     Console.WriteLine("(2) Select Product");
                     Console.WriteLine("(3) Finish Transaction");
-                    input = Console.ReadLine();
 
-                    falseInput = input != "1" && input != "2" && input != "3";
-                    
-                } while (falseInput);
-                if (input  == "1")
-                {
-                    Console.WriteLine("Please enter a full dollar amount");
-                    cashBox.AddBalance(Console.ReadLine());
+                    if (input == "1")
+                    {
+                        Console.WriteLine("Please enter a full dollar amount");
+                        cashBox.AddBalance(Console.ReadLine());
+                    }
+                    if (input == "2")
+                    {
+                        Console.WriteLine("Enter a product code")
+                        {
+                            string code = Console.ReadLine();
+                        }
+                    }
                 }
+            
 
             }
 

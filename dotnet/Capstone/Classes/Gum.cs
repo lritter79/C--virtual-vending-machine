@@ -7,7 +7,7 @@ namespace Capstone.Classes
     public class Gum : Item
     {
 
-        public Gum(string slotLocation, string productName, decimal price, string type) : base(slotLocation, productName, price, type,"Chew Chew, Yum!")
+        public Gum(string slotLocation, string productName, decimal price, string type, int count) : base(slotLocation, productName, price, type,"Chew Chew, Yum!", count)
         {
 
         }

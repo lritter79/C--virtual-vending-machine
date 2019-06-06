@@ -21,5 +21,10 @@ namespace Capstone.Classes
                 Balance += moneyFed;
             }
         }
+
+        public decimal GetBalance()
+        {
+            return Balance;
+        }
     }
 }

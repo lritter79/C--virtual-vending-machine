@@ -10,7 +10,7 @@ namespace Capstone.Classes
 {
     public static class Menu
     {
-        public static void DisplayMenu()
+        public static void DisplayMenu(decimal balance)
         {
             // Directory and file name
             string directory = Environment.CurrentDirectory;
@@ -22,7 +22,6 @@ namespace Capstone.Classes
             // Here we'll read in the file, separate each word with a comma and store
             // the individual word in a collection.
             List<string> allWords = new List<string>();
-            decimal balance = 0;
             string currentMoney = balance.ToString("C2");
             Dictionary<string, dynamic> stock = new Dictionary<string, dynamic>();
             Stock.StockVendingMachine(stock);
