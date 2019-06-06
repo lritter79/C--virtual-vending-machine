@@ -10,7 +10,6 @@ namespace Capstone.Classes
 {
     public static class Menu
     {
-
         public static void DisplayMenu()
         {
             // Directory and file name
@@ -33,8 +32,6 @@ namespace Capstone.Classes
                 string snackType = kvp.Value.GetType().ToString();
                 string[] arr = snackType.Split('.');
                 snackType = arr[arr.Length - 1];
-                string name = "";
-                decimal price = 0M;
                 Item item = kvp.Value;
                 Console.WriteLine(
                     item.SlotLocation.PadRight(4) +
@@ -43,7 +40,6 @@ namespace Capstone.Classes
                     "|" +
                     item.Price.ToString("C2").PadRight(20)
                     );
-
             }
 
            
