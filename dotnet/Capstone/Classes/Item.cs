@@ -6,10 +6,10 @@ namespace Capstone.Classes
 {
     public class Item
     {
-        public string SlotLocation { get; set;}
-        public string ProductName { get; set; }
-        public decimal Price { get; set; }
-        public string Type { get; set; }
+        public string SlotLocation { get; }
+        public string ProductName { get;  }
+        public decimal Price { get;  }
+        public string Type { get; }
         public string Phrase { get; }
 
         public Item(string slotLocation, string productName, decimal price, string type, string phrase)

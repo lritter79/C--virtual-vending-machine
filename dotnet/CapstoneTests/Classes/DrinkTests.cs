@@ -8,23 +8,26 @@ using Capstone.Classes;
 namespace CapstoneTests.Classes
 {
     [TestClass]
-    class DrinkTests
+    public class DrinkTests
 
     {
         [TestMethod]
         public void HasProperties()
         {
             // Arrange
-            Drink testGum = new Drink("x", "y", 6.01M, "drink");
+            Drink testDrink = new Drink("x", "y", 6.01M, "drink");
 
             // Act
 
+            string DrinkPhrase = testDrink.SayPhrase();
 
             // Assert
-            Assert.AreEqual(testGum.SlotLocation, "x");
-            Assert.AreEqual(testGum.ProductName, "y");
-            Assert.AreEqual(testGum.Price, 6.01M);
-            Assert.AreEqual(testGum.Type, "drink");
+            Assert.AreEqual(testDrink.SlotLocation, "x");
+         
+            Assert.AreEqual(testDrink.ProductName, "y");
+            Assert.AreEqual(testDrink.Price, 6.01M);
+            Assert.AreEqual(testDrink.Type, "drink");
+            Assert.AreEqual(DrinkPhrase, "Glug Glug, Yum!");
 
         }
     }
