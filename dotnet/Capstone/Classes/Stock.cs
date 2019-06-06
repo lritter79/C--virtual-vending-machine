@@ -33,19 +33,19 @@ namespace Capstone.Classes
                         string snackType = words[3]; 
                         if (snackType == "Chips")
                         {
-                            stock[words[0]] = new Chips(words[1], words[2], decimal.Parse(words[3]), "Chips");
+                            stock[words[0]] = new Chips(words[1], words[2], 1M, "Chips");
                         }
                         if (snackType == "Candy")
                         {
-                            stock[words[0]] = new Chips(words[1], words[2], decimal.Parse(words[3]), "Candy");
+                            stock[words[0]] = new Chips(words[1], words[2], 1M, "Candy");
                         }
                         if (snackType == "Drink")
                         {
-                            stock[words[0]] = new Chips(words[1], words[2], decimal.Parse(words[3]), "Drink");
+                            stock[words[0]] = new Chips(words[1], words[2], 1M, "Drink");
                         }
                         if (snackType == "Gum")
                         {
-                            stock[words[0]] = new Chips(words[1], words[2], decimal.Parse(words[3]), "Gum");
+                            stock[words[0]] = new Chips(words[1], words[2], 1M, "Gum");
                         }
                     }
                 }

@@ -1,17 +1,9 @@
-<<<<<<< HEAD
-﻿using Capstone.Classes;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-=======
+using Capstone.Classes;
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
->>>>>>> 3b80748c712bab42a4a3869eb5dc34bc9af0590c
 using System.Threading.Tasks;
 
 namespace Capstone.Classes
