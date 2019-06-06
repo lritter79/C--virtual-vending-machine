@@ -9,6 +9,7 @@ namespace Capstone
         public static void Main(string[] args)
         {
             CashBox cashBox = new CashBox();
+            Inventory inventory = new Inventory();
             decimal balance = cashBox.GetBalance();
             string input = "";
 
@@ -19,7 +20,7 @@ namespace Capstone
 
             if (input == "1")
             {
-                Menu.DisplayMenu(balance);
+                Menu.DisplayMenu(balance, inventory);
             }
             if (input == "2")
             {
@@ -33,13 +34,22 @@ namespace Capstone
                     if (input == "1")
                     {
                         Console.WriteLine("Please enter a full dollar amount");
-                        cashBox.AddBalance(Console.ReadLine());
+                        cashBox.AddCustomerBalance(Console.ReadLine());
                     }
                     if (input == "2")
                     {
                         Console.WriteLine("Enter a product code");
                         {
                             string code = Console.ReadLine();
+                            decimal price = inventory.GetPrice(code);
+                            string priceStr = price.ToString("C2");
+                            string product = inventory.GetProduct(code);
+                            string phrase = inventory.GetPhrase(code);
+                            int count = inventory.GetCount(code);
+                            if(count < 1)
+                            {
+                                Console.WriteLine("That Item is Sold Out!");
+                            }
                         }
                     }
                 }

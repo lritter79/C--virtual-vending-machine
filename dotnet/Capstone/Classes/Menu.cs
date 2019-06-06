@@ -10,34 +10,30 @@ namespace Capstone.Classes
 {
     public static class Menu
     {
-        public static void DisplayMenu(decimal balance)
+        public static void DisplayMenu(decimal balance, Inventory inventory)
         {
-            // Directory and file name
-            string directory = Environment.CurrentDirectory;
-            string filename = "vendingmachine.csv";
-
-            // Full Path
-            string fullPath = Path.Combine(directory, "..\\..\\..\\..\\etc", filename);
-
-            // Here we'll read in the file, separate each word with a comma and store
-            // the individual word in a collection.
-            List<string> allWords = new List<string>();
             string currentMoney = balance.ToString("C2");
-            Dictionary<string, Item> stock = new Dictionary<string, Item>();
-            Stock.StockVendingMachine(stock);
 
-            foreach (KeyValuePair<string, Item> kvp in stock)
+            Dictionary <string, Item> currentInventory = inventory.InventoryDictionary;
+            foreach (KeyValuePair<string, Item> kvp in currentInventory)
             {
                 string snackType = kvp.Value.GetType().ToString();
                 string[] arr = snackType.Split('.');
                 snackType = arr[arr.Length - 1];
                 Item item = kvp.Value;
+                string souldOut = "";
+                if (kvp.Value.ItemCount() < 1)
+                {
+                    souldOut = " (SOLD OUT)";
+                }
+
+                string price = item.Price.ToString("C2") + souldOut;
                 Console.WriteLine(
                     item.SlotLocation.PadRight(4) +
                     "|" +
                     item.ProductName.PadRight(20) +
                     "|" +
-                    item.Price.ToString("C2").PadRight(20)
+                    price
                     );
             }
 

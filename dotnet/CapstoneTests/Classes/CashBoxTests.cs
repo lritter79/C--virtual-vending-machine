@@ -21,7 +21,7 @@ namespace CapstoneTests.Classes
 
 
             // Assert
-            Assert.AreEqual(test.Balance, 0);
+            Assert.AreEqual(0, test.CustomerBalance);
            
 
         }
@@ -33,10 +33,10 @@ namespace CapstoneTests.Classes
             CashBox test = new CashBox();
 
             // Act
-            test.AddBalance("1");
+            test.AddCustomerBalance("1");
 
             // Assert
-            Assert.AreEqual(test.Balance, 1);
+            Assert.AreEqual(test.CustomerBalance, 1);
         }
 
         [TestMethod]
@@ -46,10 +46,10 @@ namespace CapstoneTests.Classes
             CashBox test = new CashBox();
 
             // Act
-            test.AddBalance("-1");
+            test.AddCustomerBalance("-1");
 
             // Assert
-            Assert.AreEqual(test.Balance, 0);
+            Assert.AreEqual(test.CustomerBalance, 0);
         }
 
         [TestMethod]
@@ -59,10 +59,10 @@ namespace CapstoneTests.Classes
             CashBox test = new CashBox();
 
             // Act
-            test.AddBalance("a");
+            test.AddCustomerBalance("a");
 
             // Assert
-            Assert.AreEqual(0, test.Balance);
+            Assert.AreEqual(0, test.CustomerBalance);
         }
 
         [TestMethod]
@@ -72,10 +72,10 @@ namespace CapstoneTests.Classes
             CashBox test = new CashBox();
 
             // Act
-            test.AddBalance("");
+            test.AddCustomerBalance("");
 
             // Assert
-            Assert.AreEqual(0, test.Balance);
+            Assert.AreEqual(0, test.CustomerBalance);
         }
 
 
@@ -86,10 +86,10 @@ namespace CapstoneTests.Classes
             CashBox test = new CashBox();
 
             // Act
-            test.AddBalance("1.5");
+            test.AddCustomerBalance("1.5");
 
             // Assert
-            Assert.AreEqual(0, test.Balance);
+            Assert.AreEqual(0, test.CustomerBalance);
         }
 
     }

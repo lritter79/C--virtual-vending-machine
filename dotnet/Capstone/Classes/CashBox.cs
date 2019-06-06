@@ -1,30 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Capstone.Classes
 {
     public class CashBox
     {
-        public decimal Balance { get; set; }
+        public decimal CustomerBalance { get; set; }
+        public decimal MachineBalance { get; set; }
 
         public CashBox()
         {
-            Balance = 0;
+            CustomerBalance = 0;
+            MachineBalance = 0;
         }
 
-        public void AddBalance(string feed)
+        public void AddCustomerBalance(string feed)
         {
             decimal moneyFed = decimal.Parse(feed);
             if (moneyFed >= 0)
             {
-                Balance += moneyFed;
+                CustomerBalance += moneyFed;
             }
         }
 
         public decimal GetBalance()
         {
-            return Balance;
+            return CustomerBalance;
         }
     }
 }

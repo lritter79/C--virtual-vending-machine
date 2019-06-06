@@ -28,6 +28,11 @@ namespace Capstone.Classes
             return Phrase;
         }
 
+        public int ItemCount()
+        {
+            return Count;
+        }
+
         public void Sale()
         {
             Count--;
