@@ -12,13 +12,18 @@ namespace Capstone.Classes
         public string Type { get; set; }
         public string Phrase { get; }
 
-        public Item(string slotLocation, string productName, decimal price, string type)
+        public Item(string slotLocation, string productName, decimal price, string type, string phrase)
         {
             SlotLocation = slotLocation;
             ProductName = productName;
             Price = price;
             Type = type;
-            Phrase = "";
+            Phrase = phrase;
+        }
+
+        public string SayPhrase()
+        {
+            return Phrase;
         }
     }
 }
