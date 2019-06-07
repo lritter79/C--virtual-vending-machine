@@ -28,24 +28,25 @@ namespace Capstone.Classes
 
                     while (!sr.EndOfStream)
                     {
+                        int maxAmount = 5;
                         string line = sr.ReadLine();
                         string[] words = line.Split('|');
                         string snackType = words[3]; 
                         if (snackType == "Chip")
                         {
-                            stock[words[0]] = new Chip(words[0], words[1], decimal.Parse(words[2]), words[3], 5);
+                            stock[words[0]] = new Chip(words[0], words[1], decimal.Parse(words[2]), words[3], maxAmount);
                         }
                         if (snackType == "Candy")
                         {
-                            stock[words[0]] = new Candy(words[0], words[1], decimal.Parse(words[2]), words[3], 5);
+                            stock[words[0]] = new Candy(words[0], words[1], decimal.Parse(words[2]), words[3], maxAmount);
                         }
                         if (snackType == "Drink")
                         {
-                            stock[words[0]] = new Drink(words[0], words[1], decimal.Parse(words[2]), words[3], 5);
+                            stock[words[0]] = new Drink(words[0], words[1], decimal.Parse(words[2]), words[3], maxAmount);
                         }
                         if (snackType == "Gum")
                         {
-                            stock[words[0]] = new Gum(words[0], words[1], decimal.Parse(words[2]), words[3], 5);
+                            stock[words[0]] = new Gum(words[0], words[1], decimal.Parse(words[2]), words[3], maxAmount);
                         }
                     }
                 }
