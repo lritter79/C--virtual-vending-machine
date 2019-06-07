@@ -9,15 +9,29 @@ namespace Capstone.Classes
 {
     public class CashBox
     {
+        /// <summary>
+        /// Amount of money the customer puts in
+        /// </summary>
         public decimal CustomerBalance { get; set; }
+        
+        /// <summary>
+        /// The amount of money currently in the machine 
+        /// </summary>
         public decimal MachineBalance { get; set; }
 
+        /// <summary>
+        /// Handles all financial transactions in the vending machine
+        /// </summary>
         public CashBox()
         {
             CustomerBalance = 0;
             MachineBalance = 0;
         }
 
+        /// <summary>
+        /// Adds the amount input by the user to the balance
+        /// </summary>
+        /// <param name="feed"></param>
         public void AddCustomerBalance(string feed)
         {
             decimal moneyFed = decimal.Parse(feed);
@@ -31,5 +45,7 @@ namespace Capstone.Classes
         {
             return CustomerBalance;
         }
+
+        //needs a method to subtract mone when an item is sold?
     }
 }

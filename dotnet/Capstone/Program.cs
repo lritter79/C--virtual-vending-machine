@@ -43,7 +43,7 @@ namespace Capstone
                             string code = Console.ReadLine();
                             decimal price = inventory.GetPrice(code);
                             string priceStr = price.ToString("C2");
-                            string product = inventory.GetProduct(code);
+                            string product = inventory.GetProductName(code);
                             string phrase = inventory.GetPhrase(code);
                             int count = inventory.GetCount(code);
                             if(count < 1)
