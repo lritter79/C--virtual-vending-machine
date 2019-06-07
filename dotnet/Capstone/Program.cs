@@ -11,35 +11,26 @@ namespace Capstone
             CashBox cashBox = new CashBox();
             Inventory inventory = new Inventory();
             decimal balance = cashBox.GetBalance();
+            decimal oldBalance = 0M;
             string input = "";
-            bool displayMenu = false;
             int count = 5;
             decimal sale = 0M;
-
-            Console.WriteLine("(1) Display Vending Machine Items");
-            Console.WriteLine("(2) Purchase");
-            input = Console.ReadLine();
-
-
-            while (input == "1")
+            string logString = "";
+            bool finished = false;
+            while(!finished)
             {
-                Menu.DisplayMenu(balance, inventory);
+                Console.WriteLine("(1) Display Vending Machine Items");
+                Console.WriteLine("(2) Purchase");
+                Console.WriteLine("(3) Exit");
                 input = Console.ReadLine();
-            }
-            if (input == "2")
-            {
-                while (input != "3")
+
+                if (input == "1")
                 {
-                    if (displayMenu)
-                    {
-                        Menu.DisplayMenu(balance, inventory);
-                    }
-                    if (count < 1)
-                    {
-                        Console.WriteLine("----------------------");
-                        Console.WriteLine("That Item is Sold Out!");
-                        Console.WriteLine("----------------------");
-                    }
+                    Menu.DisplayMenu(balance, inventory);
+                    input = Console.ReadLine();
+                }
+                if (input == "2")
+                {
                     Console.WriteLine();
                     Console.WriteLine("(1) Feed Money");
                     Console.WriteLine("(2) Select Product");
@@ -52,56 +43,71 @@ namespace Capstone
                     {
                         Console.WriteLine("Please enter a full dollar amount");
                         cashBox.AddCustomerBalance(Console.ReadLine());
+                        oldBalance = balance;
                         balance = cashBox.GetBalance();
+                        logString = "FEED MONEY: ";
+                        Log.WriteLog(logString, oldBalance, balance);
                     }
                     if (input == "2")
                     {
-                        Console.WriteLine("Enter a product code");
-                        {
-                            string code = Console.ReadLine();
-                            decimal price = inventory.GetPrice(code);
-                            string priceStr = price.ToString("C2");
-                            string product = inventory.GetProductName(code);
-                            string phrase = inventory.GetPhrase(code);
 
-                            if (balance <   price)
-                            {
-                                Console.WriteLine("----------------------");
-                                Console.WriteLine("You don't have enough money!");
-                                Console.WriteLine("----------------------");
-                            }
-                            else if (count < 1)
-                            {
-                                Console.WriteLine("----------------------");
-                                Console.WriteLine("That Item is Sold Out!");
-                                Console.WriteLine("----------------------");
-                            }
-                            else
-                            {
-                                
-                                count = inventory.GetCount(code);
-                                balance -= price;
-                                sale = inventory.NewSale(code);
-                                cashBox.AddMachineBalance(sale);
-                                displayMenu = true;
-                                Console.WriteLine();
-                                Console.WriteLine(phrase);
-                                Console.WriteLine("------");
-                                Console.WriteLine("Press enter to continue");
-                                input = Console.ReadLine();
-                            }
+                        Console.WriteLine("Enter a product code");
+
+                        string code = Console.ReadLine();
+                        decimal price = inventory.GetPrice(code);
+                        string priceStr = price.ToString("C2");
+                        string product = inventory.GetProductName(code);
+                        string phrase = inventory.GetPhrase(code);
+
+                        if (balance < price)
+                        {
+                            cashBox.OutOfFunds();
+                        }
+                        else if (count < 1)
+                        {
+                            cashBox.SoldOut();
+                        }
+                        else
+                        {
+                            logString = product + " " + code + " ";
+                            count = inventory.GetCount(code);
+                            oldBalance = balance;
+                            balance -= price;
+                            sale = inventory.NewSale(code);
+                            cashBox.AddMachineBalance(sale);
+                            Log.WriteLog(logString, oldBalance, balance);
+                            Console.WriteLine();
+                            Console.WriteLine(phrase);
+                            Console.WriteLine("Remaining Balance: " + balance);
+                            Console.WriteLine("------");
+                            Console.WriteLine("Press enter to continue");
+                            input = Console.ReadLine();
                         }
                     }
+                    if (input == "3")
+                    {
+                        decimal change = balance;
+                        Console.WriteLine(Change.GetChangeString(change));
+                        Console.WriteLine();
+                        oldBalance = balance;
+                        balance = 0M;
+                        logString = "GIVE CHANGE: ";
+                        Log.WriteLog(logString, oldBalance, balance);
+                    }
                 }
-                decimal change = balance;
-                Console.WriteLine(Change.GetChangeString(change));
-
-
-
+                if (input == "3")
+                {
+                    finished = true;
+                    Console.WriteLine();
+                    Console.WriteLine("Goodbye!");
+                    Console.ReadLine();
+                }
+                if (input == "4")
+                {
+                    Log.WriteSalesReport(SalesReport.GetSales(inventory), cashBox.MachineBalance);
+                }
             }
             
-
-        Console.ReadLine();
 
             
             //Chips chips = new Chips("a1", "chips", 0M, "chips");

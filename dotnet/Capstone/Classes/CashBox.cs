@@ -50,6 +50,19 @@ namespace Capstone.Classes
             MachineBalance += sale;
         }
 
+        public void SoldOut()
+        {
+            Console.WriteLine("----------------------");
+            Console.WriteLine("That Item is Sold Out!");
+            Console.WriteLine("----------------------");
+        }
+        public void OutOfFunds()
+        {
+            Console.WriteLine("----------------------");
+            Console.WriteLine("You don't have enough money!");
+            Console.WriteLine("----------------------");
+        }
+
         //needs a method to subtract mone when an item is sold?
     }
 }
