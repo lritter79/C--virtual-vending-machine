@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Capstone.Classes;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -33,9 +34,10 @@ namespace Capstone.Classes
             return Count;
         }
 
-        public void Sale()
+        public decimal Sale()
         {
             Count--;
+            return Price;
         }
     }
 }

@@ -38,5 +38,10 @@ namespace Capstone.Classes
             int count = InventoryDictionary[code].ItemCount();
             return count;
         }
+        public decimal NewSale(string code)
+        {
+            decimal sale = InventoryDictionary[code].Sale();
+            return sale;
+        }
     }
 }

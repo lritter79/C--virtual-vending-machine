@@ -45,6 +45,10 @@ namespace Capstone.Classes
         {
             return CustomerBalance;
         }
+        public void AddMachineBalance(decimal sale)
+        {
+            MachineBalance += sale;
+        }
 
         //needs a method to subtract mone when an item is sold?
     }

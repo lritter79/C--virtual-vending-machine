@@ -36,10 +36,7 @@ namespace Capstone.Classes
                     price
                     );
             }
-
-           
             Console.WriteLine();
-            Console.WriteLine("Current Money Provided: " + currentMoney);
         }
     }
 }
