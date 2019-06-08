@@ -94,6 +94,15 @@ namespace Capstone
                         logString = "GIVE CHANGE: ";
                         Log.WriteLog(logString, oldBalance, balance);
                     }
+
+                    if (input == "4")
+                    {
+                        Console.WriteLine("Please enter a valid number to continue");
+                        Log.WriteSalesReport(SalesReport.GetSales(inventory), cashBox.MachineBalance);
+                    }
+
+
+
                 }
                 if (input == "3")
                 {
@@ -102,10 +111,13 @@ namespace Capstone
                     Console.WriteLine("Goodbye!");
                     Console.ReadLine();
                 }
-                if (input == "4")
+
+                else
                 {
-                    Log.WriteSalesReport(SalesReport.GetSales(inventory), cashBox.MachineBalance);
+                    Console.WriteLine("Please enter a valid number to continue");
+                    Console.WriteLine();
                 }
+
             }
             
 
