@@ -10,6 +10,14 @@ namespace Capstone.Classes
 {
     public static class Menu
     {
+        public static void PrintUserOptions()
+        {
+            Console.WriteLine("(1) Display Vending Machine Items");
+            Console.WriteLine("(2) Purchase");
+            Console.WriteLine("(3) Exit");
+            Console.WriteLine();
+
+        }
         public static void DisplayMenu(decimal balance, Inventory inventory)
         {
             string currentMoney = balance.ToString("C2");

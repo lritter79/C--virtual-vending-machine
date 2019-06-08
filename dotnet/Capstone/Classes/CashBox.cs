@@ -34,11 +34,19 @@ namespace Capstone.Classes
         /// <param name="feed"></param>
         public void AddCustomerBalance(string feed)
         {
-            decimal moneyFed = decimal.Parse(feed);
-            if (moneyFed >= 0)
+            try
             {
-                CustomerBalance += moneyFed;
+                decimal moneyFed = decimal.Parse(feed);
+                if (moneyFed >= 0)
+                {
+                    CustomerBalance += moneyFed;
+                }
             }
+            catch (Exception)
+            {
+               Console.WriteLine("Error: Please enter a whole number");
+            }
+
         }
 
         public decimal GetBalance()

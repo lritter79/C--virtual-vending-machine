@@ -8,6 +8,7 @@ namespace Capstone
     {
         public static void Main(string[] args)
         {
+            // Here are our global variables
             CashBox cashBox = new CashBox();
             Inventory inventory = new Inventory();
             decimal balance = cashBox.GetBalance();
@@ -17,17 +18,21 @@ namespace Capstone
             decimal sale = 0M;
             string logString = "";
             bool finished = false;
+
+
+
             while(!finished)
             {
-                Console.WriteLine("(1) Display Vending Machine Items");
-                Console.WriteLine("(2) Purchase");
-                Console.WriteLine("(3) Exit");
+                Menu.PrintUserOptions();
                 input = Console.ReadLine();
+                Console.WriteLine();
 
                 if (input == "1")
                 {
                     Menu.DisplayMenu(balance, inventory);
-                    input = Console.ReadLine();
+                    Console.WriteLine();
+                    
+
                 }
                 if (input == "2")
                 {
@@ -112,21 +117,12 @@ namespace Capstone
                     Console.ReadLine();
                 }
 
-                else
+                else if (input != "1" && input != "2" && input != "3")
                 {
                     Console.WriteLine("Please enter a valid number to continue");
                     Console.WriteLine();
                 }
-
-            }
-            
-
-            
-            //Chips chips = new Chips("a1", "chips", 0M, "chips");
-            //Console.WriteLine(chips.Phrase);
-            //Menu.ReadFile();
-            //Console.ReadLine();
-
+            }   
         }
     }
 }
