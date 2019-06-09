@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Capstone.Classes;
 
 namespace CapstoneTests.Classes
 {
@@ -9,19 +10,19 @@ namespace CapstoneTests.Classes
     public class MenuTests
     {
 
+
             [TestMethod]
             public void Properties()
             {
-                // Arrange
-                CashBox test = new CashBox();
+            // Arrange
 
-                // Act
-
-
-                // Assert
-                Assert.AreEqual(0, test.CustomerBalance);
-
+            Inventory test = new Inventory();
+            // Act
+            Menu.DisplayMenu(0, test);
+            
+              // Assert
+          
 
             }
-        }
+    }
 }

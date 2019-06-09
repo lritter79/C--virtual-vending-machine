@@ -40,6 +40,7 @@ namespace Capstone
                     cashBox.DisplayOptions();
                    
                     Console.WriteLine("Current Money Provided: " + balance.ToString("C2"));
+                    Console.WriteLine("--------------------------------------");
 
                     input = Console.ReadLine();
 
@@ -103,7 +104,7 @@ namespace Capstone
                     {
                         decimal change = balance;
                         Console.WriteLine(Change.GetChangeString(change));
-                        Console.WriteLine("---------------------------");
+                        
                         oldBalance = balance;
                         balance = 0M;
                         logString = "GIVE CHANGE: ";

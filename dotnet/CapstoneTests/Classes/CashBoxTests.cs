@@ -5,8 +5,6 @@ using System.Collections.Generic;
 using System.Text;
 using Capstone.Classes;
 
-
-
 namespace CapstoneTests.Classes
 {
     [TestClass]
