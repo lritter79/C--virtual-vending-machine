@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Capstone.Classes
 {
     public class CashBox
@@ -37,8 +38,8 @@ namespace Capstone.Classes
             try
             {
                 decimal moneyFed = decimal.Parse(feed);
-                if (moneyFed >= 0)
-                {
+                if (moneyFed >= 0 && ((moneyFed % 1) == 0))
+                { 
                     CustomerBalance += moneyFed;
                 }
             }
@@ -58,19 +59,26 @@ namespace Capstone.Classes
             MachineBalance += sale;
         }
 
+        public void DisplayOptions()
+        {
+            Console.WriteLine("(1) Feed Money");
+            Console.WriteLine("(2) Select Product");
+            Console.WriteLine("(3) Finish Transaction");
+        }
+
         public void SoldOut()
         {
-            Console.WriteLine("----------------------");
+            Console.WriteLine("---------------------------");
             Console.WriteLine("That Item is Sold Out!");
-            Console.WriteLine("----------------------");
+            Console.WriteLine("---------------------------");
         }
         public void OutOfFunds()
         {
-            Console.WriteLine("----------------------");
+            Console.WriteLine("---------------------------");
             Console.WriteLine("You don't have enough money!");
-            Console.WriteLine("----------------------");
+            Console.WriteLine("---------------------------");
         }
 
-        //needs a method to subtract mone when an item is sold?
+       
     }
 }

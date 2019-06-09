@@ -43,5 +43,12 @@ namespace Capstone.Classes
             decimal sale = InventoryDictionary[code].Sale();
             return sale;
         }
+        public void CodeNotInInventory()
+        {
+            Console.WriteLine("--------------------");
+            Console.WriteLine("Invalid product code");
+            Console.WriteLine("--------------------");
+        }
+
     }
 }

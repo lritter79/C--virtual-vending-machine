@@ -30,16 +30,15 @@ namespace Capstone
                 if (input == "1")
                 {
                     Menu.DisplayMenu(balance, inventory);
-                    Console.WriteLine();
+                    Console.WriteLine("--------------------------------");
                     
 
                 }
                 if (input == "2")
                 {
-                    Console.WriteLine();
-                    Console.WriteLine("(1) Feed Money");
-                    Console.WriteLine("(2) Select Product");
-                    Console.WriteLine("(3) Finish Transaction");
+                    Console.WriteLine("--------------------------------------");
+                    cashBox.DisplayOptions();
+                   
                     Console.WriteLine("Current Money Provided: " + balance.ToString("C2"));
 
                     input = Console.ReadLine();
@@ -51,49 +50,60 @@ namespace Capstone
                         oldBalance = balance;
                         balance = cashBox.GetBalance();
                         logString = "FEED MONEY: ";
+                  
                         Log.WriteLog(logString, oldBalance, balance);
                     }
+
                     if (input == "2")
                     {
 
                         Console.WriteLine("Enter a product code");
 
-                        string code = Console.ReadLine();
-                        decimal price = inventory.GetPrice(code);
-                        string priceStr = price.ToString("C2");
-                        string product = inventory.GetProductName(code);
-                        string phrase = inventory.GetPhrase(code);
+                        string code = Console.ReadLine().ToUpper();
+                        //if 
+                        try
+                        {
+                            decimal price = inventory.GetPrice(code);
+                            string priceStr = price.ToString("C2");
+                            string product = inventory.GetProductName(code);
+                            string phrase = inventory.GetPhrase(code);
 
-                        if (balance < price)
-                        {
-                            cashBox.OutOfFunds();
+                            if (balance < price)
+                            {
+                                cashBox.OutOfFunds();
+                            }
+                            else if (count < 1)
+                            {
+                                cashBox.SoldOut();
+                            }
+                            else
+                            {
+                                logString = product + " " + code + " ";
+                                count = inventory.GetCount(code);
+                                oldBalance = balance;
+                                balance -= price;
+                                sale = inventory.NewSale(code);
+                                cashBox.AddMachineBalance(sale);
+                                Log.WriteLog(logString, oldBalance, balance);
+                                Console.WriteLine("---------------------------");
+                                Console.WriteLine(phrase);
+                                Console.WriteLine("Remaining Balance: " + balance);
+                                Console.WriteLine("------");
+                                Console.WriteLine("Press enter to continue");
+                                input = Console.ReadLine();
+                            }
                         }
-                        else if (count < 1)
+                        catch (Exception)
                         {
-                            cashBox.SoldOut();
+                            inventory.CodeNotInInventory();
                         }
-                        else
-                        {
-                            logString = product + " " + code + " ";
-                            count = inventory.GetCount(code);
-                            oldBalance = balance;
-                            balance -= price;
-                            sale = inventory.NewSale(code);
-                            cashBox.AddMachineBalance(sale);
-                            Log.WriteLog(logString, oldBalance, balance);
-                            Console.WriteLine();
-                            Console.WriteLine(phrase);
-                            Console.WriteLine("Remaining Balance: " + balance);
-                            Console.WriteLine("------");
-                            Console.WriteLine("Press enter to continue");
-                            input = Console.ReadLine();
-                        }
+                        
                     }
                     if (input == "3")
                     {
                         decimal change = balance;
                         Console.WriteLine(Change.GetChangeString(change));
-                        Console.WriteLine();
+                        Console.WriteLine("---------------------------");
                         oldBalance = balance;
                         balance = 0M;
                         logString = "GIVE CHANGE: ";
@@ -102,25 +112,49 @@ namespace Capstone
 
                     if (input == "4")
                     {
-                        Console.WriteLine("Please enter a valid number to continue");
+                        Console.WriteLine();
                         Log.WriteSalesReport(SalesReport.GetSales(inventory), cashBox.MachineBalance);
                     }
-
-
-
                 }
+
                 if (input == "3")
                 {
-                    finished = true;
-                    Console.WriteLine();
-                    Console.WriteLine("Goodbye!");
-                    Console.ReadLine();
+                    Console.WriteLine("---------------------------------------------");
+                    Console.WriteLine("Are you sure you want to exit? (Y)es or (N)o?");
+                    Console.WriteLine("---------------------------------------------");
+                    bool isSure = false;
+                    while (!isSure)
+                    {
+                        string yOrNInput = Console.ReadLine().ToUpper();
+                        if (yOrNInput == "Y")
+                        {
+
+                            finished = true;
+                            Console.WriteLine();
+                            Console.WriteLine("Goodbye!");
+                            Console.ReadLine();
+                            isSure = true;
+                        }
+
+                        else if (yOrNInput == "N")
+                        {
+                            isSure = true;
+                        }
+
+                        else
+                        {
+                            
+                            Console.WriteLine("Please Enter Y or N");
+                        }
+                    }
+
+                    Console.WriteLine("--------------------------------------");
                 }
 
                 else if (input != "1" && input != "2" && input != "3")
                 {
                     Console.WriteLine("Please enter a valid number to continue");
-                    Console.WriteLine();
+                    Console.WriteLine("---------------------------------------");
                 }
             }   
         }

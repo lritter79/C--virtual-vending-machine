@@ -32,7 +32,7 @@ namespace Capstone.Classes
 
                     while (!sr.EndOfStream)
                     {
-                        int maxAmount = 5;
+                        int maxAmount = 4;
                         string line = sr.ReadLine();
                         string[] words = line.Split('|');
                         string snackType = words[3]; 

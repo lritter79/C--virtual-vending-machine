@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Text;
 using Capstone.Classes;
 
+
+
 namespace CapstoneTests.Classes
 {
     [TestClass]
@@ -37,6 +39,19 @@ namespace CapstoneTests.Classes
 
             // Assert
             Assert.AreEqual(test.CustomerBalance, 1);
+        }
+
+        [TestMethod]
+        public void DoesAddMachineBalanceWork()
+        {
+            // Arrange
+            CashBox test = new CashBox();
+
+            // Act
+            test.AddMachineBalance(1);
+
+            // Assert
+            Assert.AreEqual(test.MachineBalance, 1);
         }
 
         [TestMethod]
