@@ -41,6 +41,7 @@ namespace Capstone.Classes
                 if (moneyFed >= 0 && ((moneyFed % 1) == 0))
                 { 
                     CustomerBalance += moneyFed;
+                    Console.WriteLine("You have fed " + moneyFed.ToString("C2"));
                     Console.WriteLine("Your balance is now " + CustomerBalance.ToString("C2"));
                     Console.WriteLine();
                 }
