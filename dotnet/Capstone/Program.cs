@@ -36,11 +36,12 @@ namespace Capstone
                 }
                 if (input == "2")
                 {
-                    Console.WriteLine("--------------------------------------");
+                    Console.WriteLine("-----------------------------------------------------");
                     cashBox.DisplayOptions();
                    
                     Console.WriteLine("Current Money Provided: " + balance.ToString("C2"));
-                    Console.WriteLine("--------------------------------------");
+                    Console.WriteLine("Please enter a valid number from the menu to continue");
+                    Console.WriteLine("-----------------------------------------------------");
 
                     input = Console.ReadLine();
 
