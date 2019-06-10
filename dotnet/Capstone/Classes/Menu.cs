@@ -12,9 +12,12 @@ namespace Capstone.Classes
     {
         public static void PrintUserOptions()
         {
+            
             Console.WriteLine("(1) Display Vending Machine Items");
             Console.WriteLine("(2) Purchase");
             Console.WriteLine("(3) Exit");
+            Console.WriteLine("Please enter a valid number from the menu to continue");
+            Console.WriteLine("-----------------------------------------------------");
             Console.WriteLine();
 
         }

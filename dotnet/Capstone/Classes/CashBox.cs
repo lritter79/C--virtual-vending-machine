@@ -41,6 +41,12 @@ namespace Capstone.Classes
                 if (moneyFed >= 0 && ((moneyFed % 1) == 0))
                 { 
                     CustomerBalance += moneyFed;
+                    Console.WriteLine("Your balance is now " + moneyFed.ToString("C2"));
+                    Console.WriteLine();
+                }
+                else
+                {
+                    Console.WriteLine("Error: Please enter a whole number");
                 }
             }
             catch (Exception)

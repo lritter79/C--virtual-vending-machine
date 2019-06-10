@@ -30,7 +30,7 @@ namespace Capstone
                 if (input == "1")
                 {
                     Menu.DisplayMenu(balance, inventory);
-                    Console.WriteLine("--------------------------------");
+                    Console.WriteLine("---------------------------------");
                     
 
                 }
@@ -154,8 +154,8 @@ namespace Capstone
 
                 else if (input != "1" && input != "2" && input != "3")
                 {
-                    Console.WriteLine("Please enter a valid number to continue");
-                    Console.WriteLine("---------------------------------------");
+                    Console.WriteLine("Please enter a valid number from the menu to continue");
+                    Console.WriteLine("-----------------------------------------------------");
                 }
             }   
         }
