@@ -36,7 +36,7 @@ namespace Capstone.Classes
 
         public decimal Sale()
         {
-            Count--;
+            --Count;
             return Price;
         }
     }
