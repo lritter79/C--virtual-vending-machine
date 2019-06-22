@@ -61,6 +61,7 @@ namespace Capstone.Classes
         {
             return CustomerBalance;
         }
+
         public void AddMachineBalance(decimal sale)
         {
             MachineBalance += sale;
