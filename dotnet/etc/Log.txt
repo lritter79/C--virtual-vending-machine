@@ -187,3 +187,14 @@
 6/12/2019 1:55:53 PM   Potato Crisps A1       $90.85    $87.80
 6/12/2019 1:55:59 PM   Potato Crisps A1       $87.80    $84.75
 6/12/2019 1:56:05 PM   Potato Crisps A1       $84.75    $81.70
+6/22/2019 5:54:44 PM   FEED MONEY:            $0.00     $11.00
+6/22/2019 5:54:52 PM   Potato Crisps A1       $11.00    $7.95
+6/22/2019 5:55:08 PM   FEED MONEY:            $7.95     $22.00
+6/22/2019 5:55:15 PM   Potato Crisps A1       $22.00    $18.95
+6/22/2019 5:55:30 PM   Potato Crisps A1       $18.95    $15.90
+6/22/2019 5:56:10 PM   Potato Crisps A1       $15.90    $12.85
+6/22/2019 5:56:33 PM   Potato Crisps A1       $12.85    $9.80
+6/22/2019 5:56:40 PM   Potato Crisps A1       $9.80     $6.75
+6/22/2019 6:16:18 PM   GIVE CHANGE:           $0.00     $0.00
+6/22/2019 6:22:04 PM   FEED MONEY:            $0.00     $111.00
+6/22/2019 6:22:11 PM   Potato Crisps A1       $111.00   $107.95

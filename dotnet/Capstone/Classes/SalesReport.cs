@@ -14,7 +14,7 @@ namespace Capstone.Classes
             SalesLog = new Dictionary<string, int>();
             foreach (KeyValuePair<string, Item> kvp in inventory.InventoryDictionary)
             {
-                SalesLog[kvp.Value.ProductName] = 4 - kvp.Value.Count;
+                SalesLog[kvp.Value.ProductName] = 5 - kvp.Value.Count;
             }
             return SalesLog;
         }

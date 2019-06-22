@@ -25,7 +25,7 @@ namespace Capstone.Classes
             while (!finished)
             {
                 Menu.PrintUserOptions();
-                input = Console.ReadLine();
+                input = VendingMachineCLI.GetString();
                 Console.WriteLine();
 
                 if (input == "1")
@@ -39,12 +39,10 @@ namespace Capstone.Classes
                 {
                     Console.WriteLine("-----------------------------------------------------");
                     cashBox.DisplayOptions();
-
                     Console.WriteLine("Current Money Provided: " + balance.ToString("C2"));
-                    Console.WriteLine("Please enter a valid number from the menu to continue");
-                    Console.WriteLine("-----------------------------------------------------");
+                    VendingMachineCLI.InputIsTwoMainMenu();
 
-                    input = Console.ReadLine();
+                    input = VendingMachineCLI.GetString();
 
                     if (input == "1")
                     {
